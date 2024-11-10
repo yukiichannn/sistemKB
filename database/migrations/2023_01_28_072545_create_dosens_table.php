@@ -15,11 +15,11 @@ return new class extends Migration
     {
         Schema::create('dosens', function (Blueprint $table) {
             $table->id();
-
-            $table->string('nama');
-            $table->string('nip');
-            
-
+            $table->string('nama', 50);
+            $table->string('alamat', 50);
+            $table->string('noTelp', 50);
+            $table->string('dokter', 50);
+            $table->string('dosis', 50);
             $table->timestamps();
         });
     }

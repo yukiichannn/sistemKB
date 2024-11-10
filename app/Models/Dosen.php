@@ -9,25 +9,13 @@ class Dosen extends Model
 {
     use HasFactory;
 
+    public $alamat;
+
     protected $fillable = [
         'nama',
-        'nip'
+        'alamat',
+        'noTelp',
+        'dokter',
+        'dosis'
     ];
-
-    public function matakuliah() {
-        return $this->belongsToMany(Matakuliah::class);
-    }
-
-    public function addMatakuliah($matakuliah) {
-        $this->matakuliah()->attach($matakuliah);
-    }
-
-    public function perkuliahan() {
-        return $this->belongsToMany(Perkuliahan::class);
-    }
-
-    public function scopeFilterSearch($query, $search) {
-        return $query->where('nama', 'like' , '%'.$search.'%');
-    }
-
 }

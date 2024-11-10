@@ -4,7 +4,7 @@
         <div class="modal-dialog modal-lg">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h4 class="modal-title">Data Dosen</h4>
+                    <h4 class="modal-title">Data Pasien</h4>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
@@ -19,35 +19,33 @@
                                 @enderror
                             </div>
                             <div class="form-group">
-                                <label for="nama">NIP</label>
-                                <input wire:model="nip" required class="form-control" type="text" name="nip" placeholder="NIP">
-                                @error('nip')
+                                <label for="nama">Nomor Telepon</label>
+                                <input wire:model="nip" required class="form-control" type="text" name="Nomor Telepon" placeholder="Nomor Telepon">
+                                @error('nomor telepon')
                                     <code>{{$message}}</code>
                                 @enderror
                             </div>
                             <div class="form-group">
-                                <legend>Mata Kuliah Diampu</legend>
-                                <div class="row justify-content-center align-items-center">
-                                    @foreach ($matakuliah as $matkul)
-                                    @if ($loop->iteration % 2 == 0)
-                                        <div class="col-6">
-                                            <div class="form-check">
-                                                <input wire:model="matakuliahInput" type="checkbox" class="form-check-input" name="matkul[]" id="" value="{{$matkul->id}}">
-                                                <label class="form-check-label" for=""><strong>{{$matkul->nama}}</strong></label>
-                                            </div>
-                                        </div>
-                                    @else
-                                        <div class="col-6">
-                                            <div class="form-check">
-                                                <input wire:model="matakuliahInput" type="checkbox" class="form-check-input" name="matkul[]" id="" value="{{$matkul->id}}">
-                                                <label class="form-check-label" for=""><strong>{{$matkul->nama}}</strong></label>
-                                            </div>
-                                        </div>
-                                    @endif
-                                    @endforeach
-                                </div>
-                                @error('matakuliahInput')
-                                <code>{{$message}}</code>
+                                <label for="nama">Alamat</label>
+                                <input wire:model="alamat" required class="form-control" type="text" name="alamat" placeholder="alamat">
+                                @error('Alamat')
+                                    <code>{{$message}}</code>
+                                @enderror
+                            </div>
+
+                            <div class="form-group">
+                                <label for="nama">Dokter</label>
+                                <input wire:model="Dokter" required class="form-control" type="text" name="Dokter" placeholder="Dokter">
+                                @error('Dokter')
+                                    <code>{{$message}}</code>
+                                @enderror
+                            </div>
+
+                            <div class="form-group">
+                                <label for="Dosis">Dosis</label>
+                                <input wire:model="Dosis" required class="form-control" type="text" name="Dosis" placeholder="Dosis">
+                                @error('nip')
+                                    <code>{{$message}}</code>
                                 @enderror
                             </div>
                             <h2>{{$dismissState}}</h2>
@@ -61,7 +59,7 @@
                             </div>
                         </form>
                     </div>
-              
+
             </div>
             <!-- /.modal-content -->
         </div>

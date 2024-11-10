@@ -14,21 +14,20 @@ class DosenController extends Controller
     }
 
     public function create() {
-        $mataKuliah = Matakuliah::all();
-        return view('dosen.create', ['matakuliah' => $mataKuliah]);
+        $mataKuliah = Dosen::all();
+        return view('dosen.create');
     }
 
     public function store(Request $request) {
         $formFields = $request->validate([
             'nama' => 'required',
-            'nip' => 'required|unique:dosens',
+            'alamat' => 'required',
+            'noTelp' => 'required',
+            'dokter' => 'required',
+            'dosis' => 'required'
         ]);
 
         $dosen = Dosen::create($formFields);
-
-        $selectedMatkul = $request->input('matkul');
-        $dosen->addMatakuliah($selectedMatkul);
-
         return redirect()->route('dosen.index')->with('success', $formFields['nama'] . ' Telah ditambahkan.');
     }
 }

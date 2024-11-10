@@ -24,43 +24,33 @@
                 #
             </th>
             <th>
-                Nama Dosen
+                Nama Pasien
             </th>
             <th>
-                NIP
+                Nomor Telepon
             </th>
             <th>
-                Matakuliah
+                Alamat
+            </th>
+            <th>
+                Dokter
             </th>
             <th></th>
             </thead>
             <tbody>
-            @if (isset($dosen))
-                @foreach ($dosen as $item)
-                <tr>
-                    <td>{{$loop->iteration}}</td>
-                    <td>{{$item->nama}}</td>
-                    <td>{{$item->nip}}</td>
-                    <td>
-                        @foreach ($item->matakuliah as $matkul)
-                            @if (! $loop->last)
-                                {{$matkul->nama}} ,
-                            @else
-                                {{$matkul->nama}}
-                            @endif
-                        @endforeach
-                    </td>   
-                    <td>
-                        <div class="btn-group d-flex justify-content-lg-around">
-                            <a><i title="Edit {{$item->nama}}" data-target="#modal-edit" type="button" data-toggle="modal" wire:click="getDosen({{$item->id}})" role="button" class="fas fa-edit text-success"></i></a>
-                            <a><i title="Hapus {{$item->nama}}" wire:click="$emit('confirmDelete', {{$item}})" id="#delete" type="button" role="button" class="fas fa-trash-restore text-danger"></i></a>
-                        </div>
-                    </td>                                 
-                </tr>
+                @foreach ($dosen as $index => $item)
+                    <tr>
+                        <td>{{ $index + 1 }}</td>
+                        <td>{{ $item->nama }}</td>
+                        <td>{{ $item->noTelp }}</td>
+                        <td>{{ $item->alamat }}</td>
+                        <td>{{ $item->dokter }}</td>
+                        <td>
+                            <button wire:click="edit({{ $item->id }})" class="btn btn-warning btn-sm">Edit</button>
+                            <button wire:click="delete({{ $item->id }})" class="btn btn-danger btn-sm">Delete</button>
+                        </td>
+                    </tr>
                 @endforeach
-            @else
-            <tr colspan="4"><td>No Data</td></tr>    
-            @endif
             </tbody>
         </table>
         </div>
@@ -72,7 +62,7 @@
                         <div class="col">
                             {{ $dosen->links() }}
                         </div>
-                        
+
                     </div>
                 </div>
                 <select wire:model="paginateNumber" class="form-control col-1" name="total" id="">
