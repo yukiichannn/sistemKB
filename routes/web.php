@@ -20,6 +20,9 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+Route::get('/home', function () {
+    return view('home');
+});
 
 Route::controller(DosenController::class)->group(function () {
     Route::get('/dosen', 'index')->name('dosen.index');
