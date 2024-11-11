@@ -9,10 +9,12 @@ use Livewire\Component;
 class DosenEdit extends Component
 {
     public $matakuliahList;
-    
-    public $dosen;
+
     public $nama;
-    public $nip;
+    public $noTelp;
+    public $alamat;
+    public $dokter;
+    public $dosis;
     public $matakuliahSelected = [];
     // public $matakuliahInput = [];
 
@@ -21,20 +23,15 @@ class DosenEdit extends Component
     ];
 
 
-    public function render()
-    {
-        $this->matakuliahList = Matakuliah::orderBy('nama', 'asc')->get();
-        
-        $this->emit('getMatakuliah', $this->dosen);
-        return view('livewire.dosen-edit');
-    }
 
     public function showDosen(Dosen $dosen){
         // dd($dosen->matakuliah);
         $this->dosen = $dosen;
         $this->nama = $dosen->nama;
-        $this->nip = $dosen->nip;
-        $this->matakuliahSelected = $dosen->matakuliah->pluck('id')->toArray();
+        $this->noTelp = $dosen->noTelp;
+        $this->alamat = $dosen->alamat;
+        $this->dokter = $dosen->dokter;
+        $this->dosis = $dosen->dosis;
     }
 
     public function updateDosen(){

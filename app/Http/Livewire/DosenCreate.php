@@ -9,7 +9,10 @@ use Livewire\Component;
 class DosenCreate extends Component
 {
     public $nama;
-    public $nip;
+    public $noTelp;
+    public $alamat;
+    public $dokter;
+    public $dosis;
     public $matakuliahInput = [];
     public $dismissState;
 
@@ -22,13 +25,14 @@ class DosenCreate extends Component
     public function store(){
         $input = $this->validate([
             'nama' => 'required',
-            'nip' => 'required|numeric',
-            'matakuliahInput' => 'required|array',
+            'noTelp' => 'required',
+            'alamat' => 'required',
+            'dokter' => 'required',
+            'dosis' => 'required',
         ]);
         // dd($input['matakuliahInput']);
-        
+
         $dosen = Dosen::create($input);
-        $dosen->addMatakuliah($input['matakuliahInput']);
 
         $this->clearInput();
         $this->emit('stored', ['instance' => $dosen->nama , 'dismiss' => $this->dismissState]);
@@ -36,7 +40,9 @@ class DosenCreate extends Component
 
     private function clearInput() {
         $this->nama = null;
-        $this->nip = null;
-        $this->matakuliahInput = [];
+        $this->alamat = null;
+        $this->noTelp = null;
+        $this->dokter = null;
+        $this->dosis = null;
     }
 }

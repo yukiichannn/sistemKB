@@ -14,39 +14,24 @@
                             <div class="form-group">
                                 <label for="nama">Nama</label>
                                 <input wire:model="nama" required class="form-control" type="text" name="nama" placeholder="Nama lengkap dengan gelar">
-                                @error('nama')
-                                    <code>{{$message}}</code>
-                                @enderror
                             </div>
                             <div class="form-group">
                                 <label for="nama">Nomor Telepon</label>
-                                <input wire:model="nip" required class="form-control" type="text" name="Nomor Telepon" placeholder="Nomor Telepon">
-                                @error('nomor telepon')
-                                    <code>{{$message}}</code>
-                                @enderror
+                                <input wire:model="noTelp" required class="form-control" type="text" name="noTelp" placeholder="noTelp">
                             </div>
                             <div class="form-group">
                                 <label for="nama">Alamat</label>
                                 <input wire:model="alamat" required class="form-control" type="text" name="alamat" placeholder="alamat">
-                                @error('Alamat')
-                                    <code>{{$message}}</code>
-                                @enderror
                             </div>
 
                             <div class="form-group">
                                 <label for="nama">Dokter</label>
-                                <input wire:model="Dokter" required class="form-control" type="text" name="Dokter" placeholder="Dokter">
-                                @error('Dokter')
-                                    <code>{{$message}}</code>
-                                @enderror
+                                <input wire:model="dokter" required class="form-control" type="text" name="dokter" placeholder="dokter">
                             </div>
 
                             <div class="form-group">
                                 <label for="Dosis">Dosis</label>
-                                <input wire:model="Dosis" required class="form-control" type="text" name="Dosis" placeholder="Dosis">
-                                @error('nip')
-                                    <code>{{$message}}</code>
-                                @enderror
+                                <input wire:model="dosis" required class="form-control" type="text" name="dosis" placeholder="dosis">
                             </div>
                             <h2>{{$dismissState}}</h2>
                             <div class="modal-footer justify-content-between">

@@ -10,7 +10,7 @@ class DosenController extends Controller
 {
     public function index() {
         $dosen = Dosen::all();
-        return view('dosen.index' , ['dosen' => $dosen]);
+        return view('dosen.index', compact('dosen'));
     }
 
     public function create() {
