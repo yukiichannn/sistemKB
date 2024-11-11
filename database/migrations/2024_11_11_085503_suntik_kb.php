@@ -13,14 +13,16 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('dosens', function (Blueprint $table) {
+        Schema::create('suntik_kb', function (Blueprint $table) {
             $table->id();
-            $table->string('nama', 50);
-            $table->string('address', 50);
-            $table->string('noTelp', 50);
-            $table->string('dokter', 50);
-            $table->string('dosis', 50);
+            $table->unsignedBigInteger('idPasien');
+            $table->date('tanggalKb');
+            $table->date('tanggalPengingat');
+            $table->string('metodePengingat');
+            $table->date('tanggalKbBerikutnya');
             $table->timestamps();
+
+            $table->foreign('idPasien')->references('id')->on('dosens')->onDelete('cascade');
         });
     }
 
@@ -31,6 +33,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('dosens');
+        //
     }
 };

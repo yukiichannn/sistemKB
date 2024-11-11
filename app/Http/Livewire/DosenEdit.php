@@ -12,7 +12,7 @@ class DosenEdit extends Component
 
     public $nama;
     public $noTelp;
-    public $alamat;
+    public $address;
     public $dokter;
     public $dosis;
     public $matakuliahSelected = [];
@@ -29,7 +29,7 @@ class DosenEdit extends Component
         $this->dosen = $dosen;
         $this->nama = $dosen->nama;
         $this->noTelp = $dosen->noTelp;
-        $this->alamat = $dosen->alamat;
+        $this->address = $dosen->address;
         $this->dokter = $dosen->dokter;
         $this->dosis = $dosen->dosis;
     }

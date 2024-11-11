@@ -1,9 +1,14 @@
 <div>
     <form wire:submit.prevent="create">
             <div class="form-group">
-                <label for="nama">Nama</label>
-                <input wire:change="resetDosen" wire:model.lazy="tahun" value="{{old('tahun')}}" required class="form-control" type="text" name="tahun" placeholder="Tahun Perkuliahan">
-                @error('tahun')
+                <label for="idPasien">Pasien</label>
+                <select required wire:model="idPasien" class="form-select" name="idPasien">
+                    <option readonly selected>Pilih Pasien</option>
+                    @foreach($dosen as $pasien)
+                        <option value="{{ $pasien->id }}">{{ $pasien->nama }}</option>
+                    @endforeach
+                </select>
+                @error('idPasien')
                     <code>{{$message}}</code>
                 @enderror
             </div>

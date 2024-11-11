@@ -26,6 +26,7 @@
                     <th>Nomor Telepon</th>
                     <th>Alamat</th>
                     <th>Dokter</th>
+                    <th>Dosis</th>
                     <th>Aksi</th>
                 </tr>
             </thead>
@@ -37,6 +38,7 @@
                         <td>{{ $index->noTelp }}</td>
                         <td>{{ $index->address }}</td>
                         <td>{{ $index->dokter }}</td>
+                        <td>{{ $index->dosis }}</td>
                         <td>
                             <button wire:click="edit({{ $index->id }})" class="btn btn-warning btn-sm">Edit</button>
                             <button wire:click="delete({{ $index->id }})" class="btn btn-danger btn-sm">Delete</button>

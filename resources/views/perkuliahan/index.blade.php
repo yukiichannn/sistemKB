@@ -34,7 +34,7 @@
                                     Dosis
                                 </th>
                                 <th>
-                                    Dokterx
+                                    Dokter
                                 </th>
                             </thead>
                             <tbody>
@@ -42,7 +42,7 @@
                                 @foreach ($perkuliahan as $data)
                                 <tr class="text-center">
                                         <td>{{$loop->iteration}}</td>
-                                        <td class="text-center">{{$data->semester}}</td>
+                                        <td class="text-center">{{$data->semester }}</td>
                                         <td>
                                             {{$data->kelas}}
                                         </td>

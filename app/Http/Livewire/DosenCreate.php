@@ -10,7 +10,7 @@ class DosenCreate extends Component
 {
     public $nama;
     public $noTelp;
-    public $alamat;
+    public $address;
     public $dokter;
     public $dosis;
     public $matakuliahInput = [];
@@ -26,7 +26,7 @@ class DosenCreate extends Component
         $input = $this->validate([
             'nama' => 'required',
             'noTelp' => 'required',
-            'alamat' => 'required',
+            'address' => 'required',
             'dokter' => 'required',
             'dosis' => 'required',
         ]);
@@ -40,7 +40,7 @@ class DosenCreate extends Component
 
     private function clearInput() {
         $this->nama = null;
-        $this->alamat = null;
+        $this->address = null;
         $this->noTelp = null;
         $this->dokter = null;
         $this->dosis = null;

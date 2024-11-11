@@ -11,7 +11,7 @@ class Perkuliahan extends Model
 
     protected $fillable = [
         'nama',
-        'alamat',
+        'address',
         'noTelp',
         'tanggal suntik',
         'tanggal pengingat',

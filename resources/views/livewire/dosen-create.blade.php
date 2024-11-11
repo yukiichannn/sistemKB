@@ -21,7 +21,7 @@
                             </div>
                             <div class="form-group">
                                 <label for="nama">Alamat</label>
-                                <input wire:model="alamat" required class="form-control" type="text" name="alamat" placeholder="alamat">
+                                <input wire:model="address" required class="form-control" type="text" name="address" placeholder="address">
                             </div>
 
                             <div class="form-group">

@@ -21,7 +21,7 @@ class DosenController extends Controller
     public function store(Request $request) {
         $formFields = $request->validate([
             'nama' => 'required',
-            'alamat' => 'required',
+            'address' => 'required',
             'noTelp' => 'required',
             'dokter' => 'required',
             'dosis' => 'required'
