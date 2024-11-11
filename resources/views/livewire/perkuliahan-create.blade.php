@@ -1,38 +1,16 @@
 <div>
     <form wire:submit.prevent="create">
             <div class="form-group">
-                <label for="nama">Tahun</label>
+                <label for="nama">Nama</label>
                 <input wire:change="resetDosen" wire:model.lazy="tahun" value="{{old('tahun')}}" required class="form-control" type="text" name="tahun" placeholder="Tahun Perkuliahan">
                 @error('tahun')
                     <code>{{$message}}</code>
                 @enderror
             </div>
             <div class="form-group">
-                <label for="nama">Semester</label>
-                <select wire:change="resetDosen" wire:model="semester" required class="form-select" name="semester">
-                    <option readonly selected>Pilih Semester</option>
-                    @for ($i = 1; $i < 9; $i++)
-                        <option value="{{$i}}">{{$i}}</option>
-                    @endfor
-                </select>
-                @error('semester')
-                    <code>{{$message}}</code>
-                @enderror
-            </div>
-            <div class="form-group">
-                <label for="matkul">Ruangan Kelas</label>
-                <select required  wire:change="resetDosen" wire:model="ruangan" class="form-select" name="kelas" id="">
-                    <option readonly selected aria-readonly>Pilih Ruangan Kelas</option>
-                    <option disabled>---Kampus Utama---</option>
-                    @foreach ($kelasUtama as $kelas)
-                        <option value="{{$kelas->id}}">{{$kelas->kode}}</option>
-                    @endforeach
-                    <option disabled>---Kampus Sukajadi---</option>
-                    @foreach ($kelasSukajadi as $kelas)
-                        <option value="{{$kelas->id}}">{{$kelas->kode}}</option>
-                    @endforeach
-                </select>
-                @error('ruangan')
+                <label for="nama">Alamat</label>
+                <input wire:change="resetDosen" wire:model.lazy="tahun" value="{{old('tahun')}}" required class="form-control" type="text" name="tahun" placeholder="Tahun Perkuliahan">
+                @error('tahun')
                     <code>{{$message}}</code>
                 @enderror
             </div>
@@ -53,17 +31,17 @@
             </div>
             <div class="form-group mt-0 mb-3 border rounded p-3">
                 <label for="waktu">Waktu Dimulai</label>
-                <input required 
+                <input required
                 @if (!$cekWaktu)
-                disabled = ''    
+                disabled = ''
                 @endif
                 wire:change="resetDosen" wire:model="waktu" value="{{old('waktu')}}" class="form-control-sm" type="time" name="waktu" id="">
-            
+
                 <label for="waktu">Waktu Berakhir</label>
-                <input 
-                required 
+                <input
+                required
                 @if (!$cekWaktu)
-                disabled = ''    
+                disabled = ''
                 @endif
                 wire:model="berakhir" wire:change="timeSelected" value="{{old('berakhir')}}" class="form-control-sm" type="time" name="berakhir" id="">
                 <br>
@@ -74,7 +52,7 @@
                 @elseif($message == 'not-available')
                     <p class="text-danger mb-0">Ruangan Tidak Dapat Digunakan! detil :</p>
                 @endif
-                
+
                 @error('waktu')
                     <code>{{$message}}</code>
                 @enderror
@@ -111,45 +89,33 @@
                     </div>
                 @endif
             </div>
+
             <div class="form-group">
-                <label for="matkul">Dosen</label>
-                <select 
-                @if (!$cekRuangan)
-                    disabled = ''
-                @endif
-                wire:model="classdosen" wire:change="dosenSelected" 
-                class="form-select selectpicker" 
-                name="dosen" id="">
-                    <option selected readonly>Pilih Dosen</option>
-                    @foreach ($dosen as $dosen)
-                        <option value="{{$dosen->id}}">{{$dosen->nama}}</option>
-                    @endforeach
+                <label for="matkul">Dokter</label>
+                <select required  wire:change="resetDosen" wire:model="hari" class="form-select" name="hari" id="">
+                    <option readonly selected >Pilih Dokter</option>
+                    <option value="senin">yunan</option>
+                    <option value="selasa">yukiii</option>
                 </select>
-                @error('classdosen')
+                @error('hari')
                     <code>{{$message}}</code>
                 @enderror
             </div>
             <div class="form-group">
-                <label for="matkul">Matakuliah</label>
-                <select 
-                @if (!$cekRuangan)
-                disabled = ''
-                @endif
-                wire:model="classmatakuliah" class="form-select" name="matakuliah" id="">
-                    <option readonly selected>Pilih Matakuliah</option>
-                    @if ($matakuliah != null)
-                        @foreach ($matakuliah as $matkul)
-                            <option value="{{$matkul['id']}}">{{$matkul['nama']}}</option>
-                        @endforeach
-                    @endif
+                <label for="matkul">Dosis</label>
+                <select required  wire:change="resetDosen" wire:model="hari" class="form-select" name="hari" id="">
+                    <option readonly selected >Pilih Dosisi</option>
+                    <option value="senin">A</option>
+                    <option value="selasa">B</option>
+                    <option value="rabu">C</option>
                 </select>
-                @error('classmatakuliah')
+                @error('hari')
                     <code>{{$message}}</code>
                 @enderror
             </div>
             <button
             @if (!$cekRuangan)
-                disabled = ''    
+                disabled = ''
             @endif
             type="submit" class="mt-2 btn btn-success">Simpan</button>
         </form>

@@ -18,39 +18,35 @@
         </div>
         <!-- /.card-header -->
         <div class="card-body table-responsive p-2" style="max-height: 800px; overflow-y: scroll;">
-        <table class="table table-hover table-bordered table-head-fixed text-nowrap">
-            <thead>
-            <th>
-                #
-            </th>
-            <th>
-                Nama Pasien
-            </th>
-            <th>
-                Nomor Telepon
-            </th>
-            <th>
-                Alamat
-            </th>
-            <th>
-                Dokter
-            </th>
-            <th></th>
+        <table class="table table-hover table-bordered table-striped text-nowrap">
+            <thead class="thead-dark">
+                <tr>
+                    <th>#</th>
+                    <th>Nama Pasien</th>
+                    <th>Nomor Telepon</th>
+                    <th>Alamat</th>
+                    <th>Dokter</th>
+                    <th>Aksi</th>
+                </tr>
             </thead>
             <tbody>
-                @foreach ($dosen as $index => $item)
+                @forelse ($dosen as $index)
                     <tr>
-                        <td>{{ $index + 1 }}</td>
-                        <td>{{ $item->nama }}</td>
-                        <td>{{ $item->noTelp }}</td>
-                        <td>{{ $item->alamat }}</td>
-                        <td>{{ $item->dokter }}</td>
+                        <td>{{ $index->id }}</td>
+                        <td>{{ $index->nama }}</td>
+                        <td>{{ $index->noTelp }}</td>
+                        <td>{{ $index->address }}</td>
+                        <td>{{ $index->dokter }}</td>
                         <td>
-                            <button wire:click="edit({{ $item->id }})" class="btn btn-warning btn-sm">Edit</button>
-                            <button wire:click="delete({{ $item->id }})" class="btn btn-danger btn-sm">Delete</button>
+                            <button wire:click="edit({{ $index->id }})" class="btn btn-warning btn-sm">Edit</button>
+                            <button wire:click="delete({{ $index->id }})" class="btn btn-danger btn-sm">Delete</button>
                         </td>
                     </tr>
-                @endforeach
+                @empty
+                    <tr>
+                        <td colspan="6" class="text-center">Tidak ada data</td>
+                    </tr>
+                @endforelse
             </tbody>
         </table>
         </div>

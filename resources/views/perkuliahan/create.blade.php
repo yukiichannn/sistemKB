@@ -3,7 +3,7 @@
     <div class="container">
         <div class="card">
             <div class="card-header">
-                <h3>Perkuliahan Baru</h3>
+                <h3>Data Pasien</h3>
                 @if (Session::has('error'))
                     <code>{{ Session::get('error') }}</code>
                 @endif

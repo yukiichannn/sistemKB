@@ -1,6 +1,6 @@
 <x-layout>
     <x-slot:title>DATA PASIEN</x-slot:title>
-    
+
     <div class="container">
         <div class="card">
             <div class="card-header">DATA PASIEN</div>
@@ -34,7 +34,7 @@
                                     Dosis
                                 </th>
                                 <th>
-                                    Dokter
+                                    Dokterx
                                 </th>
                             </thead>
                             <tbody>
@@ -64,7 +64,7 @@
                                 </tr>
                                     @endforeach
                                     @else
-                                    <tr colspan="4"><td>No Data</td></tr>    
+                                    <tr colspan="4"><td>No Data</td></tr>
                                 @endif
 
                             </tbody>
