@@ -1,13 +1,13 @@
 <x-layout>
-    <x-slot:title>Perkuliahan</x-slot:title>
+    <x-slot:title>DATA PASIEN</x-slot:title>
     
     <div class="container">
         <div class="card">
-            <div class="card-header">Perkuliahan</div>
+            <div class="card-header">DATA PASIEN</div>
             <div class="card-body">
                 <div class="row">
                     <div class="col">
-                        <a href="{{route('perkuliahan.create')}}" class="btn btn-primary">Data Baru</a>
+                        <a href="{{route('perkuliahan.create')}}" class="btn btn-primary">Tambah +</a>
                     </div>
                 </div>
                 <div class="card mt-3">
@@ -19,31 +19,22 @@
                                     #
                                 </th>
                                 <th>
-                                    Semester
+                                    Nama
                                 </th>
                                 <th>
-                                    Kelas
+                                    Nomor Telepon
                                 </th>
                                 <th>
-                                    Hari
+                                    Tanggal Suntik
                                 </th>
                                 <th>
-                                    Ruangan
+                                    Tanggal Pengingat
                                 </th>
                                 <th>
-                                    Lokasi
+                                    Dosis
                                 </th>
                                 <th>
-                                    Nama Dosen
-                                </th>
-                                <th>
-                                    Matakuliah
-                                </th>
-                                <th>
-                                    Dimulai
-                                </th>
-                                <th>
-                                    Berakhir
+                                    Dokter
                                 </th>
                             </thead>
                             <tbody>

@@ -10,14 +10,12 @@ class Perkuliahan extends Model
     use HasFactory;
 
     protected $fillable = [
-        'id_kelas',
-        'id_dosen_matakuliah',
-        'hari',
-        'waktu',
-        'berakhir',
-        'tahun',
-        'semester',
-        'kelas'
+        'nama',
+        'alamat',
+        'noTelp',
+        'tanggal suntik',
+        'tanggal pengingat',
+        'dokter',
     ];
 
     public function dosen() {
