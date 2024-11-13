@@ -16,7 +16,7 @@ class PerkuliahanCreate extends Component
     public $waktu;
     public $berakhir;
     public $kelas;
-    
+
     public $classdosen;
     public $classmatakuliah;
 
@@ -29,7 +29,7 @@ class PerkuliahanCreate extends Component
     public $cekWaktu = false;
 
     public function render()
-    {   
+    {
 
         if($this->tahun && $this->semester && $this->ruangan && $this->hari != null){
             $this->cekWaktu = true;
@@ -43,7 +43,7 @@ class PerkuliahanCreate extends Component
         // dd(["kampus utama" => $kelasUtama, "kampus sukajadi" => $kelasSukajadi]);
         $dosen = Dosen::all();
         return view('livewire.perkuliahan-create', [
-            'kelas' => $kelas, 
+            'kelas' => $kelas,
             'dosen' => $dosen,
             'kelasUtama' => $kelasUtama,
             'kelasSukajadi' => $kelasSukajadi
@@ -92,7 +92,7 @@ class PerkuliahanCreate extends Component
             $this->ruanganDipakai = $ruangDipakai;
             $this->ruanganDipakai['perkuliahan'] = $exist;
         }
-        
+
     }
 
     public function resetDosen() {
@@ -116,7 +116,7 @@ class PerkuliahanCreate extends Component
         } catch (\Throwable $th) {
             $perkuliahan = null;
         }
-        
+
         return $perkuliahan;
     }
 
@@ -142,7 +142,7 @@ class PerkuliahanCreate extends Component
             'classdosen' => 'required',
             'classmatakuliah' => 'required',
         ]);
-        
+
         $getMatkulDosen = $getDosen->matakuliah->find($matakuliahId);
         $input['id_kelas'] = $ruangan;
         $input['id_dosen_matakuliah'] = $getMatkulDosen->id;
@@ -162,7 +162,7 @@ class PerkuliahanCreate extends Component
         //     'kelas' => 'G'
         // ]);
 
-        
+
 
     }
 }

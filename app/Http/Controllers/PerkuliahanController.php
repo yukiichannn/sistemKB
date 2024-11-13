@@ -31,9 +31,10 @@ class PerkuliahanController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(Request $request)
     {
         $dosen = Dosen::all();
+
         return view('perkuliahan.create', ['dosen' => $dosen]);
 
     }
@@ -46,8 +47,8 @@ class PerkuliahanController extends Controller
      */
     public function store(Request $request)
     {
-        Perkuliahan::create($request->all());
-        return redirect()->route('perkuliahan.index');
+        suntik_kb::create($request->all());
+        return redirect()->route('perkuliahan.create');
     }
 
     /**

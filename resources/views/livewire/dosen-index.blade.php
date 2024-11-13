@@ -31,7 +31,7 @@
                 </tr>
             </thead>
             <tbody>
-                @forelse ($dosen as $index)
+                @forelse ($dosen->sortBy('id') as $index)
                     <tr>
                         <td>{{ $index->id }}</td>
                         <td>{{ $index->nama }}</td>
