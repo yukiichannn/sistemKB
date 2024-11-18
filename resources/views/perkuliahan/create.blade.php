@@ -9,7 +9,19 @@
                 @endif
             </div>
             <div class="card-body">
-                <livewire:perkuliahan-create />
+                <form action="{{ route('perkuliahan.store') }}" method="post">
+                    @csrf
+                    <div class="form-group
+                        @error('nama') has-error @enderror">
+                        <label for="nama">Nama</label>
+                        <input type="text" name="nama" id="nama" class="form-control" value="{{ old('nama') }}">
+                        @error('nama')
+                            <span class="help-block
+                                text-danger">{{ $message }}</span>
+                        @enderror
+
+                    </div>
+                </form>
             </div>
         </div>
     </div>
