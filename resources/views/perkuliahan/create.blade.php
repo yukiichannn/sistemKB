@@ -19,7 +19,10 @@
                             <span class="help-block
                                 text-danger">{{ $message }}</span>
                         @enderror
-
+                    </div>
+                    <div class="form-group">
+                        <label for="nim">NIM</label>
+                        <input type="text" name="nim" id="nim" class="form-control" value="{{ old('nim') }}">
                     </div>
                 </form>
             </div>

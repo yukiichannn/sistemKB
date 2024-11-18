@@ -25,8 +25,15 @@
                             </div>
 
                             <div class="form-group">
-                                <label for="nama">Dokter</label>
-                                <input wire:model="dokter" required class="form-control" type="text" name="dokter" placeholder="dokter">
+                                <label for="searchDokter">Cari Dokter</label>
+                                <input wire:model="searchDokter" class="form-control" type="text" name="searchDokter" placeholder="Cari dokter...">
+                                @if(!empty($searchDokter))
+                                    <ul class="list-group mt-2">
+                                        @foreach($dokters as $dokter)
+                                            <li class="list-group-item" wire:click="selectDokter('{{ $dokter->name }}')">{{ $dokter->name }}</li>
+                                        @endforeach
+                                    </ul>
+                                @endif
                             </div>
 
                             <div class="form-group">

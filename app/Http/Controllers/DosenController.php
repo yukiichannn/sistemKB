@@ -15,6 +15,7 @@ class DosenController extends Controller
 
     public function create() {
         $mataKuliah = Dosen::all();
+
         return view('dosen.create');
     }
 
